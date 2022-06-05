@@ -1,3 +1,3 @@
 # JoinTheEvent
 
-Web App for event submissions
+Web App for event registration
