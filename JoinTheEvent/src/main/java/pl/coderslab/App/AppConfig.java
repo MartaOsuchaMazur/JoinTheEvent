@@ -1,4 +1,4 @@
-package pl.coderslab.app;
+package pl.coderslab.App;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -18,7 +18,7 @@ import java.util.Locale;
 @Configuration
 @ComponentScan("pl.coderslab")
 @EnableWebMvc
-@EnableJpaRepositories("pl.coderslab.repository")
+@EnableJpaRepositories("pl.coderslab.Repository")
 public class AppConfig implements WebMvcConfigurer {
 
     @Override
