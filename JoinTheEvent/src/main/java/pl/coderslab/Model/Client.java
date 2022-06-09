@@ -2,8 +2,7 @@ package pl.coderslab.Model;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
-import java.util.ArrayList;
-import java.util.List;
+
 
 @Entity
 @Table(name="clients")
@@ -18,18 +17,18 @@ public class Client {
     @Column(nullable = false)
     @Size(min = 5)
     private String lastName;
-
-    @OneToMany(mappedBy = "client")
-    private List<Email> emails = new ArrayList<>();
+    private String email;
+    private String phone;
 
 
     public Client() {
     }
 
-    public Client(String firstName, String lastName, List<Email> emails) {
+    public Client(String firstName, String lastName, String email, String phone) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.emails = emails;
+        this.email = email;
+        this.phone = phone;
        }
 
     public long getId() {
@@ -56,15 +55,21 @@ public class Client {
         this.lastName = lastName;
     }
 
-    public List<Email> getEmails() {
-        return emails;
+    public String getEmail() {
+        return email;
     }
 
-    public void setEmails(List<Email> emails) {
-        this.emails = emails;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
+    public String getPhone() {
+        return phone;
+    }
 
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
 
     @Override
     public String toString() {
@@ -72,7 +77,8 @@ public class Client {
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", emails=" + emails +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
                 '}';
     }
 }
