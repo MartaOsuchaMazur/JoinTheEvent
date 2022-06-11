@@ -1,6 +1,7 @@
 package pl.coderslab.Model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="institutions")
@@ -12,16 +13,16 @@ public class Institution {
     @Column(length = 200)
     private String instName;
 
-    @ManyToOne
-    @JoinColumn(name = "client_id")
-    private Client client;
+    @OneToMany(mappedBy = "institution")
+    private List <Client> clients;
 
     public Institution() {
     }
 
-    public Institution(String instName, Client client) {
+
+    public Institution(String instName, List<Client> clients) {
         this.instName = instName;
-        this.client = client;
+        this.clients = clients;
     }
 
     public long getId() {
@@ -40,12 +41,12 @@ public class Institution {
         this.instName = instName;
     }
 
-    public Client getClient() {
-        return client;
+    public List<Client> getClients() {
+        return clients;
     }
 
-    public void setClient(Client client) {
-        this.client = client;
+    public void setClients(List<Client> clients) {
+        this.clients = clients;
     }
 
     @Override
@@ -53,7 +54,7 @@ public class Institution {
         return "Institution{" +
                 "id=" + id +
                 ", instName='" + instName + '\'' +
-                ", client=" + client +
+                ", clients=" + clients +
                 '}';
     }
 }

@@ -1,6 +1,7 @@
 package pl.coderslab.Model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 
@@ -12,13 +13,18 @@ public class Client {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column(nullable = false)
-    @Size(min = 5)
+    @Size(min = 3)
     private String firstName;
     @Column(nullable = false)
-    @Size(min = 5)
+    @Size(min = 3)
     private String lastName;
     private String email;
     private String phone;
+
+    @ManyToOne
+    @JoinColumn(name="client.id")
+    @NotNull
+    private Institution institution;
 
 
     public Client() {
@@ -30,6 +36,14 @@ public class Client {
         this.email = email;
         this.phone = phone;
        }
+
+    public Client(String firstName, String lastName, String email, String phone, Institution institution) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.phone = phone;
+        this.institution = institution;
+    }
 
     public long getId() {
         return id;
@@ -71,6 +85,14 @@ public class Client {
         this.phone = phone;
     }
 
+    public Institution getInstitution() {
+        return institution;
+    }
+
+    public void setInstitution(Institution institution) {
+        this.institution = institution;
+    }
+
     @Override
     public String toString() {
         return "Client{" +
@@ -79,6 +101,7 @@ public class Client {
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", phone='" + phone + '\'' +
+                ", institution=" + institution +
                 '}';
     }
 }
