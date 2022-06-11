@@ -14,10 +14,10 @@
    </thead>
     <tbody>
     <tr>
-        <td><c:out value="${client.firstName}"/></td>
-        <td><c:out value="${client.lastName}"/></td>
-        <td><c:out value="${client.email}"/></td>
-        <td><c:out value="${client.phone}"/></td>
+        <td><c:out value="${clients.firstName}"/></td>
+        <td><c:out value="${clients.lastName}"/></td>
+        <td><c:out value="${clients.email}"/></td>
+        <td><c:out value="${clients.phone}"/></td>
     </tr>
     </tbody>
 </table>

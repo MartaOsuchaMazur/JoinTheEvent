@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 import pl.coderslab.Model.Client;
 import pl.coderslab.Repository.ClientRepository;
 
-import java.awt.print.Book;
 import java.util.List;
 import java.util.Optional;
 
@@ -40,5 +39,6 @@ public class JpaClientService implements ClientService {
 
     @Override
     public void update(Client client) {
+        clientRepository.save(client);
     }
 }

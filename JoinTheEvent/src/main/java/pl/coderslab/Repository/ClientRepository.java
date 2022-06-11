@@ -19,4 +19,5 @@ public interface ClientRepository extends JpaRepository<Client, Long> {
     @Query("SELECT c FROM Client c WHERE c.lastName = :lastName")
     List<Client> findByLastName(@Param("lastName") String lastName);
 */
+
     }

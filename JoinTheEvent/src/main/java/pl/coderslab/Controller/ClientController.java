@@ -3,10 +3,7 @@ package pl.coderslab.Controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import pl.coderslab.Model.Client;
 import pl.coderslab.Repository.ClientRepository;
 import pl.coderslab.Service.ClientService;
@@ -16,17 +13,14 @@ import javax.validation.Valid;
 import java.util.List;
 
 @Controller
-@RequestMapping("/clients")
+@RequestMapping("/admin/clients")
 public class ClientController {
 
     private final ClientService clientService;
-    private final ClientRepository clientRepository;
 
 
-
-    public ClientController(ClientService clientService, ClientRepository clientRepository) {
+    public ClientController(ClientService clientService) {
         this.clientService = clientService;
-        this.clientRepository = clientRepository;
     }
 
     //wyświetlenie wszystkich klientów
@@ -41,11 +35,11 @@ public class ClientController {
     @GetMapping("/add")
     public String showRegistrationForm(Model model) {
         model.addAttribute("client", new Client());
-        return "/clients/form";
+        return "clients/form";
     }
 
     @PostMapping("/add")
-    public String addClient(@Valid final Client client, final BindingResult result) {
+    public String addClient(@Valid Client client, BindingResult result) {
         if (result.hasErrors()) {
             return "clients/form";
         }
@@ -56,7 +50,7 @@ public class ClientController {
     //wyszukanie klienta po id
     @GetMapping("/get/{id}")
     public String getById(@PathVariable long id, Model model) {
-        model.addAttribute("client", clientService.get(id).orElseThrow(EntityNotFoundException::new));
+        model.addAttribute("clients", clientService.get(id).orElseThrow(EntityNotFoundException::new));
         return "clients/showClient";
     }
 
@@ -79,11 +73,11 @@ public class ClientController {
 
 
     @PostMapping("/edit")
-    public String editClient(@Valid Client client, BindingResult result) {
+    public String editClient(@ModelAttribute("client") @Valid Client client, BindingResult result) {
         if (result.hasErrors()) {
             return "clients/edit";
         }
-        clientService.add(client);
-        return "redirect:/clients/all";
+        clientService.update(client);
+        return "redirect:/admin/clients/all";
     }
 }
