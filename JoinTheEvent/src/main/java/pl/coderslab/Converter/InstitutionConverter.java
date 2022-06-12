@@ -7,13 +7,14 @@ import pl.coderslab.Repository.InstitutionRepository;
 
 import java.util.Optional;
 
-public class InstitutionConverter implements Converter<String, Optional<Institution>> {
+public class InstitutionConverter implements Converter<String, Institution> {
 
     @Autowired
     private InstitutionRepository institutionRepository;
 
     @Override
-    public Optional<Institution> convert(String source) {
-        return institutionRepository.findById(Long.parseLong(source));
+    public Institution convert(String source) {
+        Institution byId = institutionRepository.findById(Long.parseLong(source));
+        return byId;
     }
 }

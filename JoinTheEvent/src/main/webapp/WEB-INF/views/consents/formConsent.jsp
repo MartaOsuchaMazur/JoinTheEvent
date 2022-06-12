@@ -6,22 +6,22 @@
     <title>Add new Client</title>
 </head>
 <body>
-<form:form method="post" modelAttribute="client">
+<form:form method="post" modelAttribute="consent">
     <div>
-        <label for="firstName">Imię*</label>
-        <form:input path="firstName" id="firstName" type="text"/>
+        <label for="generalConsent">Zgoda na przetwarzanie danych osobowych</label>
+        <form:checkbox path="generalConsent" id="generalConsent"/>
     </div>
     <div>
-        <label for="lastName">Nazwisko*</label>
-        <form:input path="lastName" id="lastName" type="text"/>
+        <label for="productConsent">Zgoda na informowanie o produktach*</label>
+        <form:checkbox path="productConsent" id="productConsent"/>
     </div>
     <div>
-        <label for="email">Email*</label>
-        <form:input path="email" id="email" type="email"/>
+        <label for="eventConsent">Zgoda na informowanie o wydarzeniach*</label>
+        <form:checkbox path="eventConsent" id="eventConsent"/>
     </div>
     <div>
-        <label for="phone">Telefon*</label>
-        <form:input path="phone" id="phone" type="text"/>
+        <label for="phoneConsent">Zgoda na kontakt telefoniczny*</label>
+        <form:checkbox path="phoneConsent" id="phoneConsent"/>
     </div>
     <div>
         <input type="submit" value="Save">

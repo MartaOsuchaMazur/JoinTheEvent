@@ -9,15 +9,19 @@
     <thead>
     <th>firstName</th>
     <th>lastName</th>
-    <th>email</th>
-    <th>phone</th>
+    <th>generalConsent</th>
+    <th>productConsent</th>
+    <th>eventConsent</th>
+    <th>phoneConsent</th>
    </thead>
     <tbody>
     <tr>
         <td><c:out value="${clients.firstName}"/></td>
         <td><c:out value="${clients.lastName}"/></td>
-        <td><c:out value="${clients.email}"/></td>
-        <td><c:out value="${clients.phone}"/></td>
+        <td><c:out value="${marketingConsent.generalConsent}"/></td>
+        <td><c:out value="${marketingConsent.productConsent}"/></td>
+        <td><c:out value="${marketingConsent.eventConsent}"/></td>
+        <td><c:out value="${marketingConsent.phoneConsent}"/></td>
     </tr>
     </tbody>
 </table>

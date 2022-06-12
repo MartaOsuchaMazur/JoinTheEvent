@@ -24,6 +24,10 @@
         <form:input path="phone" id="phone" type="text"/>
     </div>
     <div>
+        <label>Instytucja*</label>
+        <form:select path="institution.id" items="${institutions}" itemLabel="instName" itemValue="id"/>
+    </div>
+    <div>
         <input type="submit" value="Save">
     </div>
 </form:form>

@@ -5,11 +5,14 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.Model.Client;
-import pl.coderslab.Repository.ClientRepository;
+import pl.coderslab.Model.Institution;
 import pl.coderslab.Service.ClientService;
+import pl.coderslab.Service.InstitutionService;
 
 import javax.persistence.EntityNotFoundException;
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Controller
@@ -17,46 +20,56 @@ import java.util.List;
 public class ClientController {
 
     private final ClientService clientService;
+    private final InstitutionService institutionService;
 
 
-    public ClientController(ClientService clientService) {
+    public ClientController(ClientService clientService, InstitutionService institutionService) {
         this.clientService = clientService;
+        this.institutionService = institutionService;
     }
+
 
     //wyświetlenie wszystkich klientów
     @GetMapping("/all")
     public String showClients(Model model) {
         List<Client> clients = clientService.getClients();
         model.addAttribute("clients", clients);
+        model.addAttribute("institutions", institutionService.getInstitutions());
         return "/clients/all";
     }
 
     //dodanie nowego klienta
     @GetMapping("/add")
     public String showRegistrationForm(Model model) {
+     //   List<Client> clients = clientService.getClients();
         model.addAttribute("client", new Client());
+        model.addAttribute("institutions", institutionService.getInstitutions());
         return "clients/form";
     }
+
 
     @PostMapping("/add")
     public String addClient(@Valid Client client, BindingResult result) {
         if (result.hasErrors()) {
             return "clients/form";
         }
-        clientService.add(client);
-        return "redirect:all";
+
+        clientService.addClient(client);
+      //  institutionService.addInstitution(new Institution());
+        return "redirect:/clients/all";
     }
 
     //wyszukanie klienta po id
     @GetMapping("/get/{id}")
-    public String getById(@PathVariable long id, Model model) {
+    public String getById(@PathVariable Long id, Model model) {
         model.addAttribute("clients", clientService.get(id).orElseThrow(EntityNotFoundException::new));
+        model.addAttribute("institutions", institutionService.getInstitutions());
         return "clients/showClient";
     }
 
     //usuwanie klienta
     @GetMapping("/delete/{id}")
-    public String deleteById(@PathVariable long id, Model model) {
+    public String deleteById(@PathVariable Long id, Model model) {
         clientService.delete(id);
         List<Client> clients = clientService.getClients();
         model.addAttribute("clients", clients);
@@ -65,9 +78,10 @@ public class ClientController {
 
     //edycja klienta
     @GetMapping("/edit/{id}")
-    public String editClientById(@PathVariable long id, Model model) {
+    public String editClientById(@PathVariable Long id, Model model) {
         model.addAttribute("edit_url", "edit");
-        model.addAttribute("client", clientService.get(id));
+        model.addAttribute("client", clientService.get(id).get());
+        model.addAttribute("institutions", institutionService.getInstitutions());
         return "clients/edit";
     }
 
@@ -78,6 +92,6 @@ public class ClientController {
             return "clients/edit";
         }
         clientService.update(client);
-        return "redirect:/admin/clients/all";
+        return "redirect:/clients/all";
     }
 }

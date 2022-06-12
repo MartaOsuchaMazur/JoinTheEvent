@@ -10,8 +10,8 @@ import java.util.Optional;
 public interface ClientService {
 
     List<Client> getClients();
-    void add(Client client);
-    Optional<Client> get(long id);
-    void delete(long id);
+    void addClient(Client client);
+    Optional<Client> get(Long id);
+    void delete(Long id);
     void update(Client client);
 }

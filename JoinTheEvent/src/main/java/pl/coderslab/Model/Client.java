@@ -3,6 +3,7 @@ package pl.coderslab.Model;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 
 @Entity
@@ -11,7 +12,7 @@ public class Client {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     @Column(nullable = false)
     @Size(min = 3)
     private String firstName;
@@ -22,9 +23,14 @@ public class Client {
     private String phone;
 
     @ManyToOne
-    @JoinColumn(name="client.id")
+  //  @JoinColumn(name="client_id")
     @NotNull
     private Institution institution;
+
+
+    @OneToOne(mappedBy = "client")
+    private MarketingConsent marketingConsent;
+
 
 
     public Client() {
@@ -45,11 +51,11 @@ public class Client {
         this.institution = institution;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -85,13 +91,22 @@ public class Client {
         this.phone = phone;
     }
 
-    public Institution getInstitution() {
-        return institution;
+    public MarketingConsent getMarketingConsent() {
+        return marketingConsent;
+    }
+
+    public void setMarketingConsent(MarketingConsent marketingConsent) {
+        this.marketingConsent = marketingConsent;
     }
 
     public void setInstitution(Institution institution) {
         this.institution = institution;
     }
+
+    public Institution getInstitution() {
+        return institution;
+    }
+
 
     @Override
     public String toString() {
@@ -102,6 +117,7 @@ public class Client {
                 ", email='" + email + '\'' +
                 ", phone='" + phone + '\'' +
                 ", institution=" + institution +
+                ", marketingConsent=" + marketingConsent +
                 '}';
     }
 }

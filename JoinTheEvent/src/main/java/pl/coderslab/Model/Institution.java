@@ -9,7 +9,7 @@ public class Institution {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     @Column(length = 200)
     private String instName;
 
@@ -19,17 +19,21 @@ public class Institution {
     public Institution() {
     }
 
+    public Institution(Long id, String instName) {
+        this.id = id;
+        this.instName = instName;
+    }
 
     public Institution(String instName, List<Client> clients) {
         this.instName = instName;
         this.clients = clients;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

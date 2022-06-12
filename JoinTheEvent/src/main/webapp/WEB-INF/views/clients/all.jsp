@@ -11,6 +11,7 @@
     <th>lastName</th>
     <th>email</th>
     <th>phone</th>
+    <th>institution</th>
     </thead>
     <tbody>
     <c:forEach items="${clients}" var="client">
@@ -19,6 +20,7 @@
             <td><c:out value="${client.lastName}"/></td>
             <td><c:out value="${client.email}"/></td>
             <td><c:out value="${client.phone}"/></td>
+            <td><c:out value="${client.institution.instName}"/></td>
         </tr>
     </c:forEach>
     </tbody>

@@ -7,28 +7,28 @@
     <title>Edit client</title>
 </head>
 <body>
-<c:url var="edit_url" value="/admin/clients/edit"/>
-<form:form method="post" modelAttribute="client" action="${edit_url}">
-    <form:hidden path="id"/>
-<div>
-    <label for="firstName">Imię*</label>
-    <form:input path="firstName" id="firstName" type="text"/>
-</div>
-<div>
-    <label for="lastName">Nazwisko*</label>
-    <form:input path="lastName" id="lastName" type="text"/>
-</div>
-<div>
-    <label for="email">Email*</label>
-    <form:input path="email" id="email" type="email"/>
-</div>
-<div>
-    <label for="phone">Telefon*</label>
-    <form:input path="phone" id="phone" type="text"/>
-</div>
-<div>
-    <input type="submit" value="Save">
-</div>
+<c:url var="edit_url" value="/marketing/edit"/>
+<form:form method="post" modelAttribute="consent" action="${edit_url}">
+    <form:hidden path="client.id"/>
+    <div>
+        <label for="generalConsent">Zgoda na przetwarzanie danych osobowych</label>
+        <form:checkbox path="generalConsent" id="generalConsent"/>
+    </div>
+    <div>
+        <label for="productConsent">Zgoda na informowanie o produktach*</label>
+        <form:checkbox path="productConsent" id="productConsent"/>
+    </div>
+    <div>
+        <label for="eventConsent">Zgoda na informowanie o wydarzeniach*</label>
+        <form:checkbox path="eventConsent" id="eventConsent"/>
+    </div>
+    <div>
+        <label for="phoneConsent">Zgoda na kontakt telefoniczny*</label>
+        <form:checkbox path="phoneConsent" id="phoneConsent"/>
+    </div>
+    <div>
+        <input type="submit" value="Save">
+    </div>
 </form:form>
 </body>
 </html>

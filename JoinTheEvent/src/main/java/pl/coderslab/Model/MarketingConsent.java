@@ -8,20 +8,27 @@ public class MarketingConsent {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     private boolean generalConsent;
     private boolean productConsent;
     private boolean eventConsent;
     private boolean phoneConsent;
 
+    @OneToOne
+    @JoinColumn(name = "client_id")
+    private Client client;
+
+
+
     public MarketingConsent() {
     }
 
-    public MarketingConsent(boolean generalConsent, boolean productConsent, boolean eventConsent, boolean phoneConsent) {
+    public MarketingConsent(boolean generalConsent, boolean productConsent, boolean eventConsent, boolean phoneConsent, Client client) {
         this.generalConsent = generalConsent;
         this.productConsent = productConsent;
         this.eventConsent = eventConsent;
         this.phoneConsent = phoneConsent;
+        this.client = client;
     }
 
     public long getId() {
@@ -62,6 +69,14 @@ public class MarketingConsent {
 
     public void setPhoneConsent(boolean phoneConsent) {
         this.phoneConsent = phoneConsent;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
     }
 
     @Override

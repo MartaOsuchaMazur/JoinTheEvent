@@ -11,6 +11,7 @@
     <th>lastName</th>
     <th>email</th>
     <th>phone</th>
+    <th>institution</th>
    </thead>
     <tbody>
     <tr>
@@ -18,6 +19,7 @@
         <td><c:out value="${clients.lastName}"/></td>
         <td><c:out value="${clients.email}"/></td>
         <td><c:out value="${clients.phone}"/></td>
+        <td><c:out value="${clients.institution.instName}"/></td>
     </tr>
     </tbody>
 </table>

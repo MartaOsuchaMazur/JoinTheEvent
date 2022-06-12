@@ -4,12 +4,13 @@ import org.springframework.stereotype.Service;
 import pl.coderslab.Model.Institution;
 
 
-import java.util.Optional;
+import java.util.List;
 
 @Service
 public interface InstitutionService {
 
-    Institution add(Institution institution);
-    Optional<Institution> get(long id);
+    List<Institution> getInstitutions();
+    Institution addInstitution(Institution institution);
+    // void delete(long id);
     Institution update(Institution institution);
 }
