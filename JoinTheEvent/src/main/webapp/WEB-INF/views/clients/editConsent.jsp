@@ -7,7 +7,7 @@
     <title>Edit client</title>
 </head>
 <body>
-<c:url var="edit_url" value="/clients/editConsent"/>
+<c:url var="edit_url" value="/clients/"/>
 <form:form method="post" modelAttribute="consent" action="${edit_url}">
     <form:hidden path="client.id"/>
     <div>

@@ -7,7 +7,7 @@
     <title>Edit client</title>
 </head>
 <body>
-<c:url var="edit_url" value="/clients/edit"/>
+<c:url var="edit_url" value="/clients/"/>
 <form:form method="post" modelAttribute="client" action="${edit_url}">
     <form:hidden path="id"/>
 <div>
@@ -28,7 +28,7 @@
 </div>
     <div>
         <label>Instytucja*</label>
-        <form:select path="institution.instName" items="${institutions}" itemLabel="instName" itemValue="id"/>
+        <form:select path="institution.id" items="${institution}" itemLabel="id" itemValue="id"/>
     </div>
 <div>
     <input type="submit" value="Save">

@@ -7,7 +7,7 @@
 </head>
 <body>
 <form:form method="post" modelAttribute="clientConsent">
-    <div>
+        <div>
         <label for="firstName">Imię*</label>
         <form:input path="firstName" id="firstName" type="text"/>
     </div>

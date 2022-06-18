@@ -11,6 +11,7 @@ public class HomeController {
     @ResponseBody
     public String getLandingPage() {
         return "Join our event today.\n" +
+                "JoinTheEvent/admin/clients/add " +
                 "Fill out the form and register!";
     }
 }

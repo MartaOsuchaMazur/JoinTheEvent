@@ -6,7 +6,6 @@ import pl.coderslab.Model.MarketingConsent;
 import pl.coderslab.Repository.MarketingConsentRepository;
 
 import java.util.List;
-import java.util.Optional;
 
 public class MarketingConsentConverter implements Converter<String, List<MarketingConsent>> {
     @Autowired

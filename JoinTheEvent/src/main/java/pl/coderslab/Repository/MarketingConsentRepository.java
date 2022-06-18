@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface MarketingConsentRepository extends JpaRepository<MarketingConsent, Long> {
 
-    List<MarketingConsent> findByClientId(Long clientId);
+  List<MarketingConsent> findByClientId(Long clientId);
 
 }

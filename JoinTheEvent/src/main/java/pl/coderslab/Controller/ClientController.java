@@ -7,7 +7,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.Model.Client;
 import pl.coderslab.Model.Institution;
-import pl.coderslab.Model.MarketingConsent;
 import pl.coderslab.Service.ClientService;
 import pl.coderslab.Service.InstitutionService;
 
@@ -30,8 +29,6 @@ public class ClientController {
         this.institutionService = institutionService;
     }
 
-
-    //wyświetlenie wszystkich klientów
     @GetMapping("/all")
     public String showClients(Model model) {
         List<Client> clients = clientService.getClients();
@@ -40,7 +37,6 @@ public class ClientController {
         return "/clients/all";
     }
 
-    //dodanie nowego klienta
     @GetMapping("/add")
     public String showRegistrationForm(ModelMap modelMap) {
         modelMap.addAttribute("clientConsent", new Client());
@@ -55,15 +51,9 @@ public class ClientController {
             return "clients/form";
         }
         clientService.addClient(client);
-      //  clientService.get(client.getId());
-       // MarketingConsent m = new MarketingConsent();
-       // m.getClient().getId();
-        //m.setClient(id) = clientService.get(client.getId());
-
-            return "/clients/formConsent";
+        return "redirect:/marketing/add";
     }
 
-    //wyszukanie klienta po id
     @GetMapping("/get/{id}")
     public String getById(@PathVariable Long id, Model model) {
         model.addAttribute("clients", clientService.get(id).orElseThrow(EntityNotFoundException::new));
@@ -71,7 +61,6 @@ public class ClientController {
         return "clients/showClient";
     }
 
-    //usuwanie klienta
     @GetMapping("/delete/{id}")
     @ResponseBody
     public String deleteById(@PathVariable Long id, Model model) {
@@ -82,7 +71,6 @@ public class ClientController {
        // return "clients/all";
     }
 
-    //edycja klienta
     @GetMapping("/edit/{id}")
     public String editClientById(@PathVariable Long id, Model model) {
         model.addAttribute("edit_url", "edit");
@@ -93,12 +81,12 @@ public class ClientController {
 
 
     @PostMapping("/edit")
-    public String editClient(@ModelAttribute("client") @Valid Client client, BindingResult result) {
+    public String editClient(@ModelAttribute("client") @Valid Client client, Institution institution, BindingResult result) {
         if (result.hasErrors()) {
             return "clients/edit";
         }
         clientService.update(client);
-        institutionService.update(new Institution());
+        institutionService.update(institution);
         return "redirect:/clients/all";
     }
 }

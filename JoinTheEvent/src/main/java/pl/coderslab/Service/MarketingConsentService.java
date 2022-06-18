@@ -4,11 +4,9 @@ import org.springframework.stereotype.Service;
 import pl.coderslab.Model.MarketingConsent;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public interface MarketingConsentService {
-
 
     void addConsents(MarketingConsent marketingConsent);
     List<MarketingConsent> getByClientId(Long id);

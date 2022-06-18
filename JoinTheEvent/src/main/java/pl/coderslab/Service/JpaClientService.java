@@ -34,8 +34,8 @@ public class JpaClientService implements ClientService {
         return clientRepository.findById(id);
     }
     @Override
-    public Client getMaxClient(Long id) {
-        return clientRepository.findByMaxId(id);
+    public Client getMaxClient() {
+        return clientRepository.findByMaxId();
     }
 
     @Override

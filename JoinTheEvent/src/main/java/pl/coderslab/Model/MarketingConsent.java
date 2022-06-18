@@ -2,8 +2,6 @@ package pl.coderslab.Model;
 
 import javax.persistence.*;
 
-import static javax.persistence.CascadeType.*;
-
 @Entity
 @Table(name="marketingConsents")
 public class MarketingConsent {
@@ -16,7 +14,7 @@ public class MarketingConsent {
     private boolean eventConsent;
     private boolean phoneConsent;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "client_id")
     private Client client;
 
@@ -91,5 +89,9 @@ public class MarketingConsent {
                 ", eventConsent=" + eventConsent +
                 ", phoneConsent=" + phoneConsent +
                 '}';
+    }
+
+    public Client getClient(Long id) {
+        return client;
     }
 }

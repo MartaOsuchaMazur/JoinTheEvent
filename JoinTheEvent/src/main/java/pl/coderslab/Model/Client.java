@@ -4,7 +4,6 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import static javax.persistence.CascadeType.ALL;
 import static javax.persistence.CascadeType.MERGE;
 
 
@@ -24,7 +23,7 @@ public class Client {
     private String email;
     private String phone;
 
-    @ManyToOne
+    @ManyToOne (fetch = FetchType.EAGER)
     @NotNull
     private Institution institution;
 
@@ -160,4 +159,5 @@ public class Client {
     public MarketingConsent setPhoneConsent() {
         return marketingConsent;
     }
+
 }
