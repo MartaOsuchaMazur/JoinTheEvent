@@ -19,6 +19,7 @@ import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import pl.coderslab.Converter.ClientConverter;
 import pl.coderslab.Converter.InstitutionConverter;
+import pl.coderslab.Converter.MarketingConsentConverter;
 
 import javax.persistence.EntityManagerFactory;
 import javax.validation.Validator;
@@ -82,6 +83,7 @@ public class AppConfig implements WebMvcConfigurer {
 
         registry.addConverter(getClientConverter());
         registry.addConverter(getInstitutionConverter());
+        registry.addConverter(getMarketingConsentConverter());
 
     }
 
@@ -94,4 +96,10 @@ public class AppConfig implements WebMvcConfigurer {
     public InstitutionConverter getInstitutionConverter() {
         return new InstitutionConverter();
     }
+
+    @Bean
+    public MarketingConsentConverter getMarketingConsentConverter() {
+        return new MarketingConsentConverter();
+    }
+
 }

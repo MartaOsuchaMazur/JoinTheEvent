@@ -12,6 +12,10 @@
     <th>email</th>
     <th>phone</th>
     <th>institution</th>
+    <th>generalConsent</th>
+    <th>productConsent</th>
+    <th>eventConsent</th>
+    <th>phoneConsent</th>
    </thead>
     <tbody>
     <tr>
@@ -20,6 +24,10 @@
         <td><c:out value="${clients.email}"/></td>
         <td><c:out value="${clients.phone}"/></td>
         <td><c:out value="${clients.institution.instName}"/></td>
+        <td><c:out value="${clients.marketingConsent.generalConsent}"/></td>
+        <td><c:out value="${clients.marketingConsent.productConsent}"/></td>
+        <td><c:out value="${clients.marketingConsent.eventConsent}"/></td>
+        <td><c:out value="${clients.marketingConsent.phoneConsent}"/></td>
     </tr>
     </tbody>
 </table>

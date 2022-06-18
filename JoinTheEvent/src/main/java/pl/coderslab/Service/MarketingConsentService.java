@@ -10,8 +10,9 @@ import java.util.Optional;
 public interface MarketingConsentService {
 
 
-    MarketingConsent addConsents(MarketingConsent marketingConsent);
+    void addConsents(MarketingConsent marketingConsent);
     List<MarketingConsent> getByClientId(Long id);
     void delete(Long id);
     void update(MarketingConsent marketingConsent);
+
 }

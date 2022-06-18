@@ -6,7 +6,7 @@
     <title>Add new Client</title>
 </head>
 <body>
-<form:form method="post" modelAttribute="client">
+<form:form method="post" modelAttribute="clientConsent">
     <div>
         <label for="firstName">Imię*</label>
         <form:input path="firstName" id="firstName" type="text"/>
@@ -26,6 +26,9 @@
     <div>
         <label>Instytucja*</label>
         <form:select path="institution.id" items="${institutions}" itemLabel="instName" itemValue="id"/>
+    </div>
+    <div>
+        <form:input path="id" id="id" type="hidden"/>
     </div>
     <div>
         <input type="submit" value="Save">

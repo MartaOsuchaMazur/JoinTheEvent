@@ -31,7 +31,7 @@
         <form:select path="institution.instName" items="${institutions}" itemLabel="instName" itemValue="id"/>
     </div>
 <div>
-    <input type="submit" value="Save">PRIMARY
+    <input type="submit" value="Save">
 </div>
 </form:form>
 </body>

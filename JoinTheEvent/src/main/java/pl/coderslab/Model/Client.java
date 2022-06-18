@@ -3,7 +3,9 @@ package pl.coderslab.Model;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.List;
+
+import static javax.persistence.CascadeType.ALL;
+import static javax.persistence.CascadeType.MERGE;
 
 
 @Entity
@@ -23,14 +25,11 @@ public class Client {
     private String phone;
 
     @ManyToOne
-  //  @JoinColumn(name="client_id")
     @NotNull
     private Institution institution;
 
-
-    @OneToOne(mappedBy = "client")
+    @OneToOne(mappedBy = "client", cascade = MERGE)
     private MarketingConsent marketingConsent;
-
 
 
     public Client() {
@@ -49,6 +48,16 @@ public class Client {
         this.email = email;
         this.phone = phone;
         this.institution = institution;
+    }
+
+    public Client(Long id, String firstName, String lastName, String email, String phone, Institution institution, MarketingConsent marketingConsent) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.phone = phone;
+        this.institution = institution;
+        this.marketingConsent = marketingConsent;
     }
 
     public Long getId() {
@@ -120,5 +129,35 @@ public class Client {
                 ", marketingConsent=" + marketingConsent +
                 '}';
     }
-}
 
+    public boolean getGeneralConsent() {
+        return marketingConsent.isGeneralConsent();
+    }
+
+    public boolean getProductConsent() {
+        return marketingConsent.isProductConsent();
+    }
+
+    public boolean getEventConsent() {
+        return marketingConsent.isEventConsent();
+    }
+
+    public boolean getPhoneConsent() {
+        return marketingConsent.isPhoneConsent();
+    }
+    public MarketingConsent setGeneralConsent(MarketingConsent marketingConsent) {
+        return marketingConsent;
+    }
+
+    public MarketingConsent setProductConsent() {
+        return marketingConsent;
+    }
+
+    public MarketingConsent setEventConsent() {
+        return marketingConsent;
+    }
+
+    public MarketingConsent setPhoneConsent() {
+        return marketingConsent;
+    }
+}

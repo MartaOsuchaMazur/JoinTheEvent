@@ -1,12 +1,10 @@
 package pl.coderslab.Service;
 
 import org.springframework.stereotype.Service;
-import pl.coderslab.Model.Client;
 import pl.coderslab.Model.Institution;
 import pl.coderslab.Repository.InstitutionRepository;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class JpaInstitutionService implements InstitutionService{

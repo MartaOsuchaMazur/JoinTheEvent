@@ -33,6 +33,10 @@ public class JpaClientService implements ClientService {
     public Optional<Client> get(Long id) {
         return clientRepository.findById(id);
     }
+    @Override
+    public Client getMaxClient(Long id) {
+        return clientRepository.findByMaxId(id);
+    }
 
     @Override
     public void delete(Long id) {
@@ -43,7 +47,5 @@ public class JpaClientService implements ClientService {
     public void update(Client client) {
         clientRepository.save(client);
     }
-
-
 
 }

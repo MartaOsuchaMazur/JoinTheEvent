@@ -7,6 +7,7 @@
 <body>
 <table border="1">
     <thead>
+    <th>Client id</th>
     <th>firstName</th>
     <th>lastName</th>
     <th>email</th>
@@ -16,6 +17,7 @@
     <tbody>
     <c:forEach items="${clients}" var="client">
         <tr>
+            <td><c:out value="${client.id}"/></td>
             <td><c:out value="${client.firstName}"/></td>
             <td><c:out value="${client.lastName}"/></td>
             <td><c:out value="${client.email}"/></td>

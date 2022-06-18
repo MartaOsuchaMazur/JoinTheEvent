@@ -1,12 +1,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="form"
+           uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
-    <title>Add new Client</title>
+    <title>Edit client</title>
 </head>
 <body>
-<form:form method="post" modelAttribute="consent">
+<c:url var="edit_url" value="/clients/editConsent"/>
+<form:form method="post" modelAttribute="consent" action="${edit_url}">
+    <form:hidden path="client.id"/>
     <div>
         <label for="generalConsent">Zgoda na przetwarzanie danych osobowych</label>
         <form:checkbox path="generalConsent" id="generalConsent"/>

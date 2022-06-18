@@ -2,6 +2,8 @@ package pl.coderslab.Model;
 
 import javax.persistence.*;
 
+import static javax.persistence.CascadeType.*;
+
 @Entity
 @Table(name="marketingConsents")
 public class MarketingConsent {
@@ -19,7 +21,6 @@ public class MarketingConsent {
     private Client client;
 
 
-
     public MarketingConsent() {
     }
 
@@ -31,11 +32,11 @@ public class MarketingConsent {
         this.client = client;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -78,6 +79,8 @@ public class MarketingConsent {
     public void setClient(Client client) {
         this.client = client;
     }
+
+
 
     @Override
     public String toString() {
