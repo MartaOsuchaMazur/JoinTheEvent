@@ -11,7 +11,10 @@ import pl.coderslab.Model.MarketingConsent;
 import pl.coderslab.Service.ClientService;
 import pl.coderslab.Service.MarketingConsentService;
 
+import javax.persistence.EntityNotFoundException;
 import javax.validation.Valid;
+import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/marketing")
@@ -49,14 +52,16 @@ public class MarketingConsentController {
         Client maxClient = clientService.getMaxClient();
         marketingConsent.setClient(maxClient);
         marketingConsentService.addConsents(marketingConsent);
-        return "redirect:clients/allConsents";
+        return "redirect:/marketing/all";
     }
 
-// do weryfikacji
-    @GetMapping("/clients/allConsents")
-    public String showConsents(Model model) {
-        model.addAttribute("marketingConsent", marketingConsentService.getByClientId(11L));
-        return "clients/allConsents";
+    @GetMapping("/all")
+    public String showConsents(Model model, Long id) {
+        Client maxClient = clientService.getMaxClient();
+        model.addAttribute("client", maxClient);
+        Optional<MarketingConsent> marketingConsent = marketingConsentService.get(maxClient.getId());
+        model.addAttribute("marketingConsent", marketingConsent);
+        return "clients/showClientConsent";
     }
 
 

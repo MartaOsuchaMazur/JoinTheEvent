@@ -12,15 +12,15 @@
     <c:out value="${client.firstName}"></c:out>
     <c:out value="${client.lastName}"></c:out>
     <div>
-        <label for="generalConsent">Zgoda na przetwarzanie danych osobowych</label>
+        <label for="generalConsent">Zgoda na przetwarzanie danych osobowych*</label>
         <form:checkbox path="generalConsent" name="generalConsent" id="generalConsent"/>
     </div>
     <div>
-        <label for="productConsent">Zgoda na informowanie o produktach*</label>
+        <label for="productConsent">Zgoda na informowanie o produktach</label>
         <form:checkbox path="productConsent" name="productConsent" id="productConsent"/>
     </div>
     <div>
-        <label for="eventConsent">Zgoda na informowanie o wydarzeniach*</label>
+        <label for="eventConsent">Zgoda na informowanie o wydarzeniach</label>
         <form:checkbox path="eventConsent" name="eventConsent" id="eventConsent"/>
     </div>
     <div>

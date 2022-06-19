@@ -6,6 +6,7 @@ import pl.coderslab.Repository.ClientRepository;
 import pl.coderslab.Repository.MarketingConsentRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class JpaMarketingConsentService implements MarketingConsentService{
@@ -36,4 +37,8 @@ public class JpaMarketingConsentService implements MarketingConsentService{
         return marketingConsentRepository.findByClientId(id);
     }
 
+    @Override
+    public Optional<MarketingConsent> get(Long id) {
+        return marketingConsentRepository.findById(id);
+    }
 }

@@ -22,8 +22,6 @@ public class ClientController {
     private final ClientService clientService;
     private final InstitutionService institutionService;
 
-
-
     public ClientController(ClientService clientService, InstitutionService institutionService) {
         this.clientService = clientService;
         this.institutionService = institutionService;
@@ -43,7 +41,6 @@ public class ClientController {
         modelMap.addAttribute("institutions", institutionService.getInstitutions());
         return "clients/form";
     }
-
 
     @PostMapping("/add")
     public String addClient(@ModelAttribute("clientConsent") @Valid Client client, BindingResult result, Client id) {
