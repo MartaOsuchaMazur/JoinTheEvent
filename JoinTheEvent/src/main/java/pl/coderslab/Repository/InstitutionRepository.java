@@ -6,13 +6,10 @@ import org.springframework.data.repository.query.Param;
 import pl.coderslab.Model.Institution;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface InstitutionRepository extends JpaRepository<Institution, Long> {
 
-    // metoda wyszukująca instytucję dla zadanego idy - co to daje, połączyć z listą klientów
     @Query("SELECT i FROM Institution i WHERE i.id = :id")
     Institution findById(@Param("id") long id);
-
-
-
 }

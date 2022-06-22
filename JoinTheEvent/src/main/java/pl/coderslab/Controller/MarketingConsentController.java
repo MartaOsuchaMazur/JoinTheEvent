@@ -11,9 +11,7 @@ import pl.coderslab.Model.MarketingConsent;
 import pl.coderslab.Service.ClientService;
 import pl.coderslab.Service.MarketingConsentService;
 
-import javax.persistence.EntityNotFoundException;
 import javax.validation.Valid;
-import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -65,21 +63,21 @@ public class MarketingConsentController {
     }
 
 
-    @GetMapping("/edit/{id}")
-    public String update(@PathVariable Long id, Model model) {
-        model.addAttribute("edit_url", "edit");
-        model.addAttribute("consent", marketingConsentService.getByClientId(id).get(1));
-        return "clients/editConsent";
-    }
+//    @GetMapping("/edit/{id}")
+//    public String update(@PathVariable Long id, Model model) {
+//        model.addAttribute("edit_url", "edit");
+//        model.addAttribute("consent", marketingConsentService.getByClientId(id).get());
+//        return "clients/editConsent";
+//    }
 
 
-    @PostMapping("/edit")
-    public String editClient(@ModelAttribute("consent") @Valid MarketingConsent marketingConsent, BindingResult result) {
-        if (result.hasErrors()) {
-            return "clients/editConsent";
-        }
-        marketingConsentService.update(marketingConsent);
-        return "redirect: clients/showClientConsent";
-    }
+//    @PostMapping("/edit")
+//    public String editClient(@ModelAttribute("consent") @Valid MarketingConsent marketingConsent, BindingResult result) {
+//        if (result.hasErrors()) {
+//            return "clients/editConsent";
+//        }
+//        marketingConsentService.update(marketingConsent);
+//        return "redirect: clients/showClientConsent";
+//    }
 
 }

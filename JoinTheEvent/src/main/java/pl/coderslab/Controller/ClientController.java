@@ -6,13 +6,14 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.Model.Client;
-import pl.coderslab.Model.Institution;
 import pl.coderslab.Service.ClientService;
 import pl.coderslab.Service.InstitutionService;
+import pl.coderslab.Service.MarketingConsentService;
 
 import javax.persistence.EntityNotFoundException;
 import javax.validation.Valid;
 import java.util.List;
+
 
 @Controller
 @RequestMapping("/admin/clients")
@@ -21,10 +22,13 @@ public class ClientController {
 
     private final ClientService clientService;
     private final InstitutionService institutionService;
+    private final MarketingConsentService marketingConsentService;
 
-    public ClientController(ClientService clientService, InstitutionService institutionService) {
+
+    public ClientController(ClientService clientService, InstitutionService institutionService, MarketingConsentService marketingConsentService) {
         this.clientService = clientService;
         this.institutionService = institutionService;
+        this.marketingConsentService = marketingConsentService;
     }
 
     @GetMapping("/all")
@@ -55,35 +59,38 @@ public class ClientController {
     public String getById(@PathVariable Long id, Model model) {
         model.addAttribute("clients", clientService.get(id).orElseThrow(EntityNotFoundException::new));
         model.addAttribute("institutions", institutionService.getInstitutions());
+        model.addAttribute("marketingConsent", marketingConsentService.getByClientId(id));
         return "clients/showClient";
     }
 
     @GetMapping("/delete/{id}")
     @ResponseBody
     public String deleteById(@PathVariable Long id, Model model) {
+        marketingConsentService.delete(id);
         clientService.delete(id);
         List<Client> clients = clientService.getClients();
         model.addAttribute("clients", clients);
         return "client deleted";
-       // return "clients/all";
     }
 
-    @GetMapping("/edit/{id}")
-    public String editClientById(@PathVariable Long id, Model model) {
-        model.addAttribute("edit_url", "edit");
-        model.addAttribute("client", clientService.get(id).get());
-        model.addAttribute("institutions", institutionService.getInstitutions());
-        return "clients/edit";
-    }
-
-
-    @PostMapping("/edit")
-    public String editClient(@ModelAttribute("client") @Valid Client client, Institution institution, BindingResult result) {
-        if (result.hasErrors()) {
-            return "clients/edit";
-        }
-        clientService.update(client);
-        institutionService.update(institution);
-        return "redirect:/clients/all";
-    }
+//    @GetMapping("/edit/{id}")
+//    public String editClientById(@PathVariable Long id, Model model) {
+//        model.addAttribute("edit_url", "edit");
+//        Client client = new Client();
+//        model.addAttribute("client", clientService.get(id));
+//        //model.addAttribute("client", clientService.get(id).get());
+//        //model.addAttribute("institutions", institutionService.getInstitutions());
+//        return "clients/edit";
+//    }
+//
+//    @PostMapping("/edit")
+//    public String editClient(@ModelAttribute("client") @Valid Client client, BindingResult result) {
+//        if (result.hasErrors()) {
+//            return "clients/edit";
+//        }
+//       // clientService.get(id);
+//        clientService.update(client);
+//        //institutionService.update(institution);
+//        return "redirect:/clients/all";
+//    }
 }

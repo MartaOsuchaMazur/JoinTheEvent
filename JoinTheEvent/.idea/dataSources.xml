@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="client_db@localhost" uuid="e4591bdb-fcd8-46c3-b258-9aa42dd742e0">
+    <data-source source="LOCAL" name="client_db@localhost" uuid="098ad66c-8884-472b-8f96-604c7f0df715">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://localhost:3306/client_db</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
-      <driver-properties>
-        <property name="allowLoadLocalInfile" value="TRUE" />
-      </driver-properties>
     </data-source>
   </component>
 </project>

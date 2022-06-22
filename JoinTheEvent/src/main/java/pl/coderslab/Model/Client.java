@@ -1,6 +1,7 @@
 package pl.coderslab.Model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -15,12 +16,15 @@ public class Client {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(nullable = false)
-    @Size(min = 3)
+    @Size(min = 3, max=50)
     private String firstName;
     @Column(nullable = false)
-    @Size(min = 3)
+    @Size(min = 2, max = 50)
     private String lastName;
+    @NotNull
+    @Email
     private String email;
+    @NotNull
     private String phone;
 
     @ManyToOne (fetch = FetchType.EAGER)

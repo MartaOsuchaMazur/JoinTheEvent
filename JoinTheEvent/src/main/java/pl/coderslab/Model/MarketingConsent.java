@@ -1,6 +1,7 @@
 package pl.coderslab.Model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name="marketingConsents")
@@ -9,9 +10,11 @@ public class MarketingConsent {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotNull
     private boolean generalConsent;
     private boolean productConsent;
     private boolean eventConsent;
+    @NotNull
     private boolean phoneConsent;
 
     @OneToOne(fetch = FetchType.EAGER)

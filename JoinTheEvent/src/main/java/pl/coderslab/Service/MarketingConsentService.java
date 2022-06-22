@@ -15,4 +15,5 @@ public interface MarketingConsentService {
     void delete(Long id);
     void update(MarketingConsent marketingConsent);
 
+
 }

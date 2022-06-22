@@ -7,31 +7,32 @@
     <title>Edit client</title>
 </head>
 <body>
-<c:url var="edit_url" value="/clients/"/>
+<c:url var="edit_url" value="/clients/edit/"/>
 <form:form method="post" modelAttribute="client" action="${edit_url}">
-    <form:hidden path="id"/>
+
+    <input type="hidden" value="${client.id}" name="id" path="id"  id="id"/>
 <div>
-    <label for="firstName">Imię*</label>
-    <form:input path="firstName" id="firstName" type="text"/>
+    <label for="firstName">Imię</label>
+    <input value="${client.firstName}" name="firstName" path="firstName" type="text" id="firstName"/>
 </div>
 <div>
-    <label for="lastName">Nazwisko*</label>
-    <form:input path="lastName" id="lastName" type="text"/>
+    <label for="lastName">Nazwisko</label>
+    <input value="${client.lastName}"name="lastName" path="lastName" type="text" id="lastName" />
 </div>
 <div>
-    <label for="email">Email*</label>
-    <form:input path="email" id="email" type="email"/>
+    <label for="email">Email</label>
+    <input value="${client.email}"name="email" path="email" type="email" id="email" />
 </div>
 <div>
-    <label for="phone">Telefon*</label>
-    <form:input path="phone" id="phone" type="text"/>
+    <label for="phone">Telefon</label>
+    <input value="${client.phone}"name="phone" path="phone" type="text" id="phone" />
 </div>
     <div>
-        <label>Instytucja*</label>
-        <form:select path="institution.id" items="${institution}" itemLabel="id" itemValue="id"/>
+        <label>Instytucja</label>
+        <input value="${client.institution.id}" name="institution" path="institution.id" type="text" id="insName"/>
     </div>
 <div>
-    <input type="submit" value="Save">
+    <input type="submit" value="Edit">
 </div>
 </form:form>
 </body>
