@@ -1,11 +1,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@include file="/header.jsp"%>
 <html>
 <head>
     <title>Show selected client</title>
 </head>
 <body>
+<%@include file="/header.jsp"%>
 <div class="container-fluid">
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <%--            <h1 class="h3 mb-0 text-gray-800">Nasza baza</h1>--%>
@@ -39,7 +39,7 @@
             </tr>
         </table>
         </div>
-        </div>
+    </div>
 </div>
     </form:form>
     <div>

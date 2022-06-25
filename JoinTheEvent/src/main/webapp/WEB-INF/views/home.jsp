@@ -12,7 +12,7 @@
     </div>
     <center> <h1> Panel Administratora</h1></center><br><br>
     <center><br><h2><a href=admin/all>Lista klientów</a></h2> <br><br>
-        <center><br><h2><a href=/admin/show>Klient - szczegóły</a></h2> <br><br>
+        <center><br><h2><a href=admin/show>Klient - szczegóły</a></h2> <br><br>
                 <br> <h2><a href=admin/institution>Lista instytucji</a> </h2><br><br>
         <br> <h2><a href=admin/new> Dodaj klienta z RODO </a></h2><br><br>
 <%@ include file="/footer.jsp" %>

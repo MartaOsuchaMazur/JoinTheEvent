@@ -26,8 +26,7 @@
                         <th>IMIĘ</th>
                         <th>NAZWISKO</th>
                         <th>INSTYTUCJA</th>
-                        <th>POKAŻ KLIENTA</th>
-                        <th>USUŃ KLIENTA</th>
+                        <th>Akcja</th>
                     </tr>
                     <c:forEach items="${clients}" var="client">
                         <tr>
@@ -35,8 +34,14 @@
                             <td><c:out value="${client.firstName}"/></td>
                             <td><c:out value="${client.lastName}"/></td>
                             <td><c:out value="${client.institution.instName}"/></td>
-                            <td><a href="/admin/get/${client.id}">Pokaż</a></td>
-                            <td><a href="/admin/delete/${client.id}">Usuń</a></td>
+                            <td>
+                            <a href='<c:url value="/admin/delete?id=${client.id}"/>'>Usuń</a>
+                            <a href='<c:url value="/admin/edit?id=${client.id}"/>'>Edit</a>
+<%--                            <a href='<c:url value="/admin/get?id=${client.id}"/>'>Pokaż</a>--%>
+                            <a href='<c:url value="/admin/get/${client.id}"/>'>Pokaż</a>
+                            </td>
+
+<%--                            <td><a href="/admin/delete/${client.id}">Usuń</a></td>--%>
 <%--                                <a href='<c:url value="/user/edit?id=${user.id}"/>'>Edit</a>--%>
                         </tr>
                     </c:forEach>

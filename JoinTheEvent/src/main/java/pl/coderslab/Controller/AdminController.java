@@ -80,10 +80,10 @@ public class AdminController {
     @GetMapping("/delete/{id}")
     @ResponseBody
     public String deleteById(@PathVariable Long id, Model model) {
-        marketingConsentService.delete(id);
-        clientService.delete(id);
         List<Client> clients = clientService.getClients();
         model.addAttribute("clients", clients);
+        marketingConsentService.delete(id);
+        clientService.delete(id);
         return "client deleted";
     }
 
