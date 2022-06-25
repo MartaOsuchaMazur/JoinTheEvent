@@ -62,22 +62,29 @@ public class MarketingConsentController {
         return "clients/showClientConsent";
     }
 
+    @GetMapping("/new")
+    public String getConsentsFormAdmin(ModelMap modelMap, Long id) {
+        MarketingConsent marketingConsent = new MarketingConsent();
+        modelMap.addAttribute("marketingConsent", marketingConsent);
+        Client maxClient = clientService.getMaxClient();
+        modelMap.addAttribute("client", maxClient);
+        modelMap.addAttribute("clients", clientService.getClients());
+        marketingConsent.setClient(maxClient);
+        return "/admin/formConsentAdmin";
+    }
 
-//    @GetMapping("/edit/{id}")
-//    public String update(@PathVariable Long id, Model model) {
-//        model.addAttribute("edit_url", "edit");
-//        model.addAttribute("consent", marketingConsentService.getByClientId(id).get());
-//        return "clients/editConsent";
-//    }
+    @PostMapping("/new")
+    public String addConsentAdmin(@ModelAttribute("marketingConsent") @Valid final MarketingConsent marketingConsent,
+                                  final BindingResult result, Long id) {
+        if (result.hasErrors()) {
+            return "/admin/formConsentAdmin";
+        }
+        Client maxClient = clientService.getMaxClient();
+        marketingConsent.setClient(maxClient);
+        marketingConsentService.addConsents(marketingConsent);
+        return "redirect:/admin/all";
+    }
 
 
-//    @PostMapping("/edit")
-//    public String editClient(@ModelAttribute("consent") @Valid MarketingConsent marketingConsent, BindingResult result) {
-//        if (result.hasErrors()) {
-//            return "clients/editConsent";
-//        }
-//        marketingConsentService.update(marketingConsent);
-//        return "redirect: clients/showClientConsent";
-//    }
 
 }

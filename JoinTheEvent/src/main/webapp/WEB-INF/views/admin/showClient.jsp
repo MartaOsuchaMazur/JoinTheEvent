@@ -7,23 +7,23 @@
 <body>
 <table border="1">
     <thead>
-    <th>firstName</th>
-    <th>lastName</th>
-    <th>email</th>
-    <th>phone</th>
-    <th>institution</th>
-    <th>generalConsent</th>
-    <th>productConsent</th>
-    <th>eventConsent</th>
-    <th>phoneConsent</th>
+    <th>IMIĘ</th>
+    <th>NAZWISKO</th>
+    <th>INSTYTUCJA</th>
+    <th>EMAIL</th>
+    <th>TELEFON</th>
+    <th>PRZETWARZANIE DANYCH</th>
+    <th>OFERTA PRODUKTOWA</th>
+    <th>WYDARZENIA</th>
+    <th>KONTAKT TEL.</th>
    </thead>
     <tbody>
     <tr>
         <td><c:out value="${clients.firstName}"/></td>
         <td><c:out value="${clients.lastName}"/></td>
+        <td><c:out value="${clients.institution.instName}"/></td>
         <td><c:out value="${clients.email}"/></td>
         <td><c:out value="${clients.phone}"/></td>
-        <td><c:out value="${clients.institution.instName}"/></td>
         <td><c:out value="${clients.marketingConsent.generalConsent}"/></td>
         <td><c:out value="${clients.marketingConsent.productConsent}"/></td>
         <td><c:out value="${clients.marketingConsent.eventConsent}"/></td>

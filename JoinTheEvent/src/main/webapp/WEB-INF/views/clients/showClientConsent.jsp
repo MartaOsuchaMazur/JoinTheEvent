@@ -42,6 +42,9 @@
         </div>
 </div>
     </form:form>
+    <div>
+        <a href="">Powrót do strony wydarzenia</a>
+    </div>
 <%@ include file="/footer.jsp" %>
 </body>
 </html>

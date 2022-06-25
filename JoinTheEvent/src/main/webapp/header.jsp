@@ -18,7 +18,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>Nasza Baza</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -42,14 +42,14 @@
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-laugh-wink"></i>
             </div>
-            <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+            <div class="sidebar-brand-text mx-3">Nasza Baza</div>
         </a>
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="/home">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>Dashboard</span></a>
+                <span>Panel Administratora</span></a>
         </li>
 
         <!-- Sidebar Toggler (Sidebar) -->
@@ -67,21 +67,21 @@
         <div id="content">
 
             <!-- Topbar -->
-            <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+<%--            <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">--%>
 
-                <!-- Sidebar Toggle (Topbar) -->
-                <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                    <i class="fa fa-bars"></i>
-                </button>
+<%--                <!-- Sidebar Toggle (Topbar) -->--%>
+<%--                <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">--%>
+<%--                    <i class="fa fa-bars"></i>--%>
+<%--                </button>--%>
 
-                <!-- Topbar Navbar -->
-                <ul class="navbar-nav ml-auto">
+<%--                <!-- Topbar Navbar -->--%>
+<%--                <ul class="navbar-nav ml-auto">--%>
 
-                    <div class="topbar-divider d-none d-sm-block"></div>
+<%--                    <div class="topbar-divider d-none d-sm-block"></div>--%>
 
-                </ul>
+<%--                </ul>--%>
 
-            </nav>
+<%--            </nav>--%>
             <!-- End of Topbar -->
 
 </body>

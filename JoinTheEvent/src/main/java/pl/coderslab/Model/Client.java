@@ -16,10 +16,10 @@ public class Client {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(nullable = false)
-    @Size(min = 3, max=50)
+    @Size(min = 3, max=50, message = "Imię musi zawierać co najmniej 3 litery")
     private String firstName;
     @Column(nullable = false)
-    @Size(min = 2, max = 50)
+    @Size(min = 2, max = 50, message = "Nazwisko musi zawierać co najmniej 2 litery")
     private String lastName;
     @NotNull
     @Email

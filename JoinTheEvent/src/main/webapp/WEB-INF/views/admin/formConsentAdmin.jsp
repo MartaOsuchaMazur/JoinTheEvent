@@ -1,24 +1,17 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@include file="/header.jsp"%>
 <html>
 <head>
-    <title>Add new Client - Consents</title>
+    <title>Dodaj klienta z RODO</title>
 </head>
 <body>
+<%@include file="/header.jsp"%>
 <div class="container-fluid">
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <%--            <h1 class="h3 mb-0 text-gray-800">Nasza baza</h1>--%>
         <%--            <a href="<c:url value="/admin/clients/all"/>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">--%>
         <%--                <i class="fas fa-download fa-sm text-white-50"></i>Lista uczestników</a>--%>
-    </div>
-    <div>
-        <p>Rejestracja na webinarium: Bo uczyć się warto!<br/>
-            26 czerwca 2022 roku  11:00 - 12:30 online</p>
-    </div>
-    <div>
-        <p>Prosimy o zapoznanie się i akceptację polityki przetwarzania danych osobowych Naszej firmy.</p>
     </div>
     <form:form method="post" modelAttribute="marketingConsent">
         <%-- <form:select path="client.id" items="${clients}" itemLabel="firstName" itemValue="id"/> --%>
@@ -28,7 +21,7 @@
     </div>
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Zarejestruj się</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Dodaj klienta z RODO</h6>
         </div>
         <div class="card-body">
             <div class="form-group">
