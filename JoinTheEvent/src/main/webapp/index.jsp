@@ -18,7 +18,10 @@
        <p>O wydarzeniu</p>
     </font>
     <font size="3" face="Calibri">
-        <p>Na webinarium przedstawimy odświeżony wachlarz możliwości naszego Centrum Szkoleniowego. Szef szkoleń opowie w jakim kierunku zmienia się nasza propozycja szkoleń z technologii analitycznych. Główną część spotkania stanowić będzie fragment wykładu ze szkolenia dotyczącego prognozowania z użyciem technik szeregów czasowych. Wykład zostanie uzupełniony o przykłady w narzędziach analitycznych.</p>
+        <p>Na webinarium przedstawimy odświeżony wachlarz możliwości naszego Centrum Szkoleniowego. Szef szkoleń opowie<br>
+            w jakim kierunku zmienia się nasza propozycja szkoleń z technologii analitycznych. Główną część spotkania stanowić<br>
+            będzie fragment wykładu ze szkolenia dotyczącego prognozowania z użyciem technik szeregów czasowych. Wykład<br>
+            zostanie uzupełniony o przykłady w narzędziach analitycznych.</p>
     </font><br>
     <font face="Calibri" size="3"><strong>HARMONOGRAM</strong></font><br>
     <ol>

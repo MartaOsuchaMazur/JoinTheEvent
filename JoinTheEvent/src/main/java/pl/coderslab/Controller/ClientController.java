@@ -1,18 +1,14 @@
 package pl.coderslab.Controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.Model.Client;
 import pl.coderslab.Service.ClientService;
 import pl.coderslab.Service.InstitutionService;
-import pl.coderslab.Service.MarketingConsentService;
 
-import javax.persistence.EntityNotFoundException;
 import javax.validation.Valid;
-import java.util.List;
 
 
 @Controller
@@ -22,13 +18,11 @@ public class ClientController {
 
     private final ClientService clientService;
     private final InstitutionService institutionService;
-    private final MarketingConsentService marketingConsentService;
 
 
-    public ClientController(ClientService clientService, InstitutionService institutionService, MarketingConsentService marketingConsentService) {
+    public ClientController(ClientService clientService, InstitutionService institutionService) {
         this.clientService = clientService;
         this.institutionService = institutionService;
-        this.marketingConsentService = marketingConsentService;
     }
 
     @GetMapping("/add")
@@ -46,7 +40,4 @@ public class ClientController {
         clientService.addClient(client);
         return "redirect:/marketing/add";
     }
-
-
-
 }

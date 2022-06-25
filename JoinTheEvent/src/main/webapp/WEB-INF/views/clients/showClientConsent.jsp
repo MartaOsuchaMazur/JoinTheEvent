@@ -2,21 +2,18 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Show selected client</title>
+    <title>Zgody Klienta</title>
 </head>
 <body>
 <%@include file="/header.jsp"%>
 <div class="container-fluid">
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <%--            <h1 class="h3 mb-0 text-gray-800">Nasza baza</h1>--%>
-        <%--            <a href="<c:url value="/admin/clients/all"/>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">--%>
-        <%--                <i class="fas fa-download fa-sm text-white-50"></i>Lista uczestników</a>--%>
     </div>
     <form:form method="post" modelAttribute="marketingConsent">
         <%-- <form:select path="client.id" items="${clients}" itemLabel="firstName" itemValue="id"/> --%>
     <div>
         <c:out value="${client.firstName}"></c:out>
-        <c:out value="${client.lastName}"></c:out> /// <c:out value="${client.email}"></c:out>
+        <c:out value="${client.lastName}"></c:out> /// <c:out value="${client.email}"></c:out><br>
     </div>
         <div class="card shadow mb-4">
         <div class="card-header py-3">
@@ -43,7 +40,7 @@
 </div>
     </form:form>
     <div>
-        <a href="">Powrót do strony wydarzenia</a>
+        <a href="http://localhost:8080/JoinTheEvent/">Powrót do strony wydarzenia</a>
     </div>
 <%@ include file="/footer.jsp" %>
 </body>

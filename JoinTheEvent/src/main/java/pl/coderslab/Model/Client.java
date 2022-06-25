@@ -27,7 +27,7 @@ public class Client {
     @NotNull
     private String phone;
 
-    @ManyToOne (fetch = FetchType.EAGER)
+    @ManyToOne (fetch = FetchType.EAGER, cascade = MERGE)
     @NotNull
     private Institution institution;
 

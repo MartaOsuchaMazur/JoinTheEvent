@@ -84,7 +84,6 @@ public class AppConfig implements WebMvcConfigurer {
         registry.addConverter(getClientConverter());
         registry.addConverter(getInstitutionConverter());
         registry.addConverter(getMarketingConsentConverter());
-
     }
 
     @Bean

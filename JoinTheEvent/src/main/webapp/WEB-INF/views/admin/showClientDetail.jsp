@@ -8,9 +8,6 @@
 <%@include file="/header.jsp"%>
 <div class="container-fluid">
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-<%--        <h1 class="h3 mb-0 text-gray-800"></h1>--%>
-<%--        <a href="<c:url value="/admin/new"/>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">--%>
-<%--            <i class="fas fa-download fa-sm text-white-50"></i>Dodaj klienta</a>--%>
     </div>
     <form:form method="post" modelAttribute="clients">
         <%-- <form:select path="client.id" items="${clients}" itemLabel="firstName" itemValue="id"/> --%>
@@ -27,10 +24,6 @@
                         <th>INSTYTUCJA</th>
                         <th>EMAIL</th>
                         <th>TELEFON</th>
-                        <th>PRZETWARZANIE DANYCH</th>
-                        <th>OFERTA PRODUKTOWA</th>
-                        <th>WYDARZENIA</th>
-                        <th>KONTAKT TELEFONICZNY</th>
                     </tr>
                     <tr>
                         <td><c:out value="${clients.firstName}"/></td>
@@ -38,10 +31,6 @@
                         <td><c:out value="${clients.institution.instName}"/></td>
                         <td><c:out value="${clients.email}"/></td>
                         <td><c:out value="${clients.phone}"/></td>
-                        <td><c:out value="${clients.marketingConsent.generalConsent}"/></td>
-                        <td><c:out value="${clients.marketingConsent.productConsent}"/></td>
-                        <td><c:out value="${clients.marketingConsent.eventConsent}"/></td>
-                        <td><c:out value="${clients.marketingConsent.phoneConsent}"/></td>
                     </tr>
                 </table>
             </div>
@@ -49,7 +38,7 @@
     </div>
     </form:form>
     <div>
-        <a href='<c:url value="/home"/>'>Powrót do Panelu Administratora</a>
+        <a href='<c:url value="/admin/show"/>'>Powrót do listy klientów</a>
     </div>
 <%@ include file="/footer.jsp" %>
 </body>

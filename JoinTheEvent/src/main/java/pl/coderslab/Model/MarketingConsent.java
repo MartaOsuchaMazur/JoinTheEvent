@@ -81,8 +81,6 @@ public class MarketingConsent {
         this.client = client;
     }
 
-
-
     @Override
     public String toString() {
         return "MarketingConsent{" +

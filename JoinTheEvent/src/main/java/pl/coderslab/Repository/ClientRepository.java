@@ -10,10 +10,9 @@ import java.util.Optional;
 public interface ClientRepository extends JpaRepository<Client, Long> {
 
 
-    @Query(value= "SELECT c FROM Client c WHERE c.id = :id")
+    @Query(value = "SELECT c FROM Client c WHERE c.id = :id")
     Optional<Client> findById(@Param("id") Long id);
 
     @Query(value = "SELECT c FROM Client c WHERE c.id = (SELECT MAX(c.id) FROM Client c)")
     Client findByMaxId();
-
-    }
+}

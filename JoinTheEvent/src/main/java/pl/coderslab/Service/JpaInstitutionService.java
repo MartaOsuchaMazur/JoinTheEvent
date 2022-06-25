@@ -5,7 +5,6 @@ import pl.coderslab.Model.Institution;
 import pl.coderslab.Repository.InstitutionRepository;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class JpaInstitutionService implements InstitutionService{
@@ -18,11 +17,6 @@ public class JpaInstitutionService implements InstitutionService{
     @Override
     public List<Institution> getInstitutions() {
         return institutionRepository.findAll();
-    }
-
-    @Override
-    public Institution addInstitution(Institution institution) {
-        return institutionRepository.save(institution);
     }
 
     @Override

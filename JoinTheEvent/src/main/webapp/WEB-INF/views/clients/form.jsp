@@ -4,7 +4,7 @@
 <%@include file="/header.jsp"%>
 <html>
 <head>
-    <title>Dodaj uczestnika</title>
+    <title>Formularz rejestracyjny</title>
 </head>
 <body>
 
@@ -58,13 +58,11 @@
                       </div>
                   <div>
                     <input class="btn btn-primary" type="submit" value="Dalej">
-<%--                    <input class="btn btn-primary" type="submit" value="Powrót">--%>
                   </div>
                     </form:form>
             </div>
         </div>
     </div>
-
 </body>
 <%@ include file="/footer.jsp" %>
 </html>

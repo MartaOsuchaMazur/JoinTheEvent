@@ -1,12 +1,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@include file="/header.jsp"%>
 <html>
 <head>
-    <title>Add new Client - Consents</title>
+    <title>Formularz - zgody</title>
 </head>
 <body>
+<%@include file="/header.jsp"%>
 <div class="container-fluid">
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <%--            <h1 class="h3 mb-0 text-gray-800">Nasza baza</h1>--%>
@@ -18,13 +18,13 @@
             26 czerwca 2022 roku  11:00 - 12:30 online</p>
     </div>
     <div>
-        <p>Prosimy o zapoznanie się i akceptację polityki przetwarzania danych osobowych Naszej firmy.</p>
+        <p>Prosimy o zapoznanie się i akceptację polityki przetwarzania danych osobowych Naszej firmy.</p><br>
     </div>
     <form:form method="post" modelAttribute="marketingConsent">
         <%-- <form:select path="client.id" items="${clients}" itemLabel="firstName" itemValue="id"/> --%>
     <div>
         <c:out value="${client.firstName}"></c:out>
-        <c:out value="${client.lastName}"></c:out> /// <c:out value="${client.email}"></c:out>
+        <c:out value="${client.lastName}"></c:out> /// <c:out value="${client.email}"></c:out><br>
     </div>
     <div class="card shadow mb-4">
         <div class="card-header py-3">

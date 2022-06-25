@@ -84,7 +84,4 @@ public class MarketingConsentController {
         marketingConsentService.addConsents(marketingConsent);
         return "redirect:/admin/all";
     }
-
-
-
 }

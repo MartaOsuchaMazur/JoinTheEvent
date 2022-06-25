@@ -13,7 +13,6 @@ public interface ClientService {
     void addClient(Client client);
     Optional<Client> get(Long id);
     Client getMaxClient();
-   // Client getClient();
     void delete(Long id);
     void update(Client client);
 }

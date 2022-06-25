@@ -5,8 +5,6 @@ import org.springframework.core.convert.converter.Converter;
 import pl.coderslab.Model.Institution;
 import pl.coderslab.Repository.InstitutionRepository;
 
-import java.util.Optional;
-
 
 public class InstitutionConverter implements Converter<String, Institution> {
 

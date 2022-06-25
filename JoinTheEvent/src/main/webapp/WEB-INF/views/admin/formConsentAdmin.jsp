@@ -3,7 +3,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
-    <title>Dodaj klienta z RODO</title>
+    <title>Dodaj Klienta z RODO</title>
 </head>
 <body>
 <%@include file="/header.jsp"%>
@@ -17,11 +17,11 @@
         <%-- <form:select path="client.id" items="${clients}" itemLabel="firstName" itemValue="id"/> --%>
     <div>
         <c:out value="${client.firstName}"></c:out>
-        <c:out value="${client.lastName}"></c:out> /// <c:out value="${client.email}"></c:out>
+        <c:out value="${client.lastName}"></c:out> /// <c:out value="${client.email}"></c:out><br><br>
     </div>
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Dodaj klienta z RODO</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Dodaj Klienta z RODO</h6>
         </div>
         <div class="card-body">
             <div class="form-group">

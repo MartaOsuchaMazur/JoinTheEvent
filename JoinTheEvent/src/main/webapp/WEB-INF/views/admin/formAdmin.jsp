@@ -3,20 +3,17 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
-    <title>Dodaj klienta</title>
+    <title>Dodaj Klienta</title>
 </head>
 <body>
 <%@include file="/header.jsp"%>
     <div class="container-fluid">
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-<%--            <h1 class="h3 mb-0 text-gray-800">Nasza baza</h1>--%>
-<%--            <a href="<c:url value="/admin/clients/all"/>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">--%>
-<%--                <i class="fas fa-download fa-sm text-white-50"></i>Lista uczestników</a>--%>
         </div>
         <form:form method="post" modelAttribute="clientConsent">
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Dodaj klienta z RODO</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Dodaj Klienta z RODO</h6>
             </div>
                   <div class="card-body">
                     <div class="form-group">
@@ -56,6 +53,9 @@
                   </div>
                     </form:form>
             </div>
+        </div>
+        <div>
+            <a href='<c:url value="/home"/>'>Powrót do Panelu Administratora</a>
         </div>
     </div>
 <%@ include file="/footer.jsp" %>
