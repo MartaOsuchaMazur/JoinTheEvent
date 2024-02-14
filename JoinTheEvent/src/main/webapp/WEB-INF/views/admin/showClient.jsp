@@ -49,7 +49,7 @@
     </div>
     </form:form>
     <div>
-        <a href='<c:url value="/home"/>'>Powrót do Panelu Administratora</a>
+        <a href='<c:url value="/admin/show"/>'>Powrót do Szczegółów</a>
     </div>
 <%@ include file="/footer.jsp" %>
 </body>
