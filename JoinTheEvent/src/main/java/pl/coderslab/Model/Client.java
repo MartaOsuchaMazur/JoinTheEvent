@@ -3,6 +3,7 @@ package pl.coderslab.Model;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import static javax.persistence.CascadeType.MERGE;
@@ -17,14 +18,18 @@ public class Client {
     private Long id;
     @Column(nullable = false)
     @Size(min = 3, max=50, message = "Imię musi zawierać co najmniej 3 litery")
+    @NotNull
     private String firstName;
     @Column(nullable = false)
     @Size(min = 2, max = 50, message = "Nazwisko musi zawierać co najmniej 2 litery")
+    @NotNull
     private String lastName;
     @NotNull
     @Email
     private String email;
     @NotNull
+    @Pattern(regexp = "(?:(?:(?:\\+|00)?48)|(?:\\(\\+?48\\)))?(?:1[2-8]|2[2-69]|3[2-49]|4[1-8]|5[0-9]|6[0-35-9]|[7-8][1-9]|9[145])\\d{7}",
+            message = "Podano niepoprawny numer telefonu")
     private String phone;
 
     @ManyToOne (fetch = FetchType.EAGER, cascade = MERGE)
