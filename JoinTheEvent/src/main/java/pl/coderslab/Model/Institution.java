@@ -24,6 +24,8 @@ public class Institution {
         this.instName = instName;
     }
 
+
+    // TODO: This is not used, do we want those unused constructors?
     public Institution(String instName, List<Client> clients) {
         this.instName = instName;
         this.clients = clients;

@@ -1,4 +1,5 @@
 package pl.coderslab.Controller;
+//TODO: Update packages name according to the convention
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -32,6 +33,7 @@ public class ClientController {
         return "clients/form";
     }
 
+    //TODO: id is not used
     @PostMapping("/add")
     public String addClient(@ModelAttribute("clientConsent") @Valid Client client, BindingResult result, Client id) {
         if (result.hasErrors()) {

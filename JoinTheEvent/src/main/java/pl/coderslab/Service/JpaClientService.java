@@ -1,5 +1,6 @@
 package pl.coderslab.Service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import pl.coderslab.Model.Client;
@@ -14,14 +15,14 @@ public class JpaClientService implements ClientService {
 
     private final ClientRepository clientRepository;
 
-
     public JpaClientService(ClientRepository clientRepository) {
         this.clientRepository = clientRepository;
     }
 
     @Override
     public List<Client> getClients() {
-        return clientRepository.findAll();
+        List<Client> clients = clientRepository.findAll();
+        return clients;
     }
 
     @Override
