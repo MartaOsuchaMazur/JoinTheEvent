@@ -21,7 +21,9 @@ public class JpaClientService implements ClientService {
 
     @Override
     public List<Client> getClients() {
-        return clientRepository.findAll();
+        List<Client> clients = clientRepository.findAll();
+        return clients;
+   //     return clientRepository.findAll();
     }
 
     @Override
