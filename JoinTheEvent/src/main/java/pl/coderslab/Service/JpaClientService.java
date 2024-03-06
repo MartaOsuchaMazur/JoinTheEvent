@@ -27,8 +27,9 @@ public class JpaClientService implements ClientService {
     }
 
     @Override
-    public void addClient(Client client) {
+    public Client addClient(Client client) {
         clientRepository.save(client);
+        return client;
     }
 
     @Override
@@ -47,8 +48,9 @@ public class JpaClientService implements ClientService {
     }
 
     @Override
-    public void update(Client client) {
+    public Client update(Client client) {
         clientRepository.save(client);
+        return client;
     }
 
 }

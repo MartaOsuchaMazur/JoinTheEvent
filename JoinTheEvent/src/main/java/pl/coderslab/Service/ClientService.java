@@ -10,9 +10,9 @@ import java.util.Optional;
 public interface ClientService {
 
     List<Client> getClients();
-    void addClient(Client client);
+    Client addClient(Client client);
     Optional<Client> get(Long id);
     Client getMaxClient();
     void delete(Long id);
-    void update(Client client);
+    Client update(Client client);
 }

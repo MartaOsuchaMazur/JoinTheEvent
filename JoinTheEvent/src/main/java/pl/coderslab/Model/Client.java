@@ -72,8 +72,9 @@ public class Client {
         return id;
     }
 
-    public void setId(Long id) {
+    public Long setId(Long id) {
         this.id = id;
+        return id;
     }
 
     public String getFirstName() {

@@ -25,12 +25,26 @@ class ClientTest {
         assertEquals("Ania", client1.getFirstName());
         assertTrue(violations.isEmpty(), "No validation errors should occur for a valid client");
     }
+//
+    @Test
+    void shouldReturnLastNameWhenValidSetName() {
+
+        Client client1 = new Client("Ania", "Mikulska", "a.mikulska@wp.pl", "+48632765443", new Institution());
+        var violations = VALIDATOR.validate(client1);
+        assertEquals("Mikulska", client1.getLastName());
+        assertTrue(violations.isEmpty(), "No validation errors should occur for a valid client");
+    }
 
     @Test
     void shouldInvalidClient() {
         Client client1 = new Client("Ania", "Nowacka", "a.nowacka@wp.pl", "+4863", new Institution());
         var violations = VALIDATOR.validate(client1);
         assertEquals(1, violations.size());
+    }
+
+    @Test
+    void shouldGetAllClients() {
+
     }
 
 }
