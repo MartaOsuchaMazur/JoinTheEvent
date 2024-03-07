@@ -42,9 +42,4 @@ class ClientTest {
         assertEquals(1, violations.size());
     }
 
-    @Test
-    void shouldGetAllClients() {
-
-    }
-
 }

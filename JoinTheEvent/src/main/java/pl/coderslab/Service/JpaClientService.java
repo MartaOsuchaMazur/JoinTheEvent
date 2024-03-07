@@ -1,5 +1,7 @@
 package pl.coderslab.Service;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import pl.coderslab.Model.Client;
@@ -8,6 +10,8 @@ import pl.coderslab.Repository.ClientRepository;
 import java.util.List;
 import java.util.Optional;
 
+@Setter
+@Getter
 @Service
 @Primary
 public class JpaClientService implements ClientService {

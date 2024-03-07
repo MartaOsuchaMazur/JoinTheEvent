@@ -1,8 +1,13 @@
 package pl.coderslab.Model;
 
+import lombok.*;
+
 import javax.persistence.*;
 import java.util.List;
 
+@Setter
+@Getter
+@AllArgsConstructor
 @Entity
 @Table(name="institutions")
 public class Institution {
@@ -19,39 +24,6 @@ public class Institution {
     public Institution() {
     }
 
-    public Institution(Long id, String instName) {
-        this.id = id;
-        this.instName = instName;
-    }
-
-    public Institution(String instName, List<Client> clients) {
-        this.instName = instName;
-        this.clients = clients;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getInstName() {
-        return instName;
-    }
-
-    public void setInstName(String instName) {
-        this.instName = instName;
-    }
-
-    public List<Client> getClients() {
-        return clients;
-    }
-
-    public void setClients(List<Client> clients) {
-        this.clients = clients;
-    }
 
     @Override
     public String toString() {

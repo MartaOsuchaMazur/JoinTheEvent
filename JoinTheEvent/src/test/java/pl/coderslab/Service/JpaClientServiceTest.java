@@ -9,10 +9,11 @@ import pl.coderslab.Model.Client;
 import pl.coderslab.Model.Institution;
 import pl.coderslab.Repository.ClientRepository;
 
-import java.util.ArrayList;
+
 import java.util.Arrays;
 import java.util.List;
-import java.util.UUID;
+import java.util.Optional;
+
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.catchThrowable;
@@ -41,25 +42,23 @@ class JpaClientServiceTest {
     @Test
     void addClient_ShouldCreateClient() {
         Client client = new Client("Ania", "Nowacka", "a.nowacka@wp.pl", "+48632765443", new Institution());
-
         Client result = jpaClientService.addClient(client);
 
         assertThat(result.getFirstName().equals(client.getFirstName()));
     }
 
-//    @Test
-//    void update_ShouldUpdateClient() {
-//        Client client = new Client("Ania", "Nowacka", "a.nowacka@wp.pl", "+48632765443", new Institution());
-//        client = jpaClientService.addClient(client);
-//        Long id = client.setId(Long.valueOf(2));
-//
-//        client.setFirstName("Marzanna");
-//
-//        Client result = jpaClientService.update(client.getId(), client);
-//
-//        assertThat(result.getId().equals(client.getId()));
-//        assertThat(result.getId().equals(jpaClientService.get(client.getId().longValue())));
-//    }
+
+    @Test
+    void update_ShouldUpdateClient() {
+        Client client = new Client("Ania", "Nowacka", "a.nowacka@wp.pl", "+48632765443", new Institution());
+        client = jpaClientService.addClient(client);
+        client.setFirstName("Marzanna");
+
+        when(jpaClientService.update(client).getFirstName());
+      //  assertThat("Marzanna").isEqualTo(client.getFirstName());
+        }
+
+
 
     //
     @Test
